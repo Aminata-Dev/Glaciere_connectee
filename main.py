@@ -37,7 +37,7 @@ def ajout_temperature_BDD(temperature):
 
 os.chdir("site") #On change de dossier
 
-files = ['temperatures_glaciere.php', 'style_site.css', 'fond.jpg']
+files = ['suivi_temperature_glaciere.php', 'style_site.css', 'fond.jpg', 'icone.png']
 
 for file in files:
     try:
@@ -49,7 +49,7 @@ print("Ouverture de Xampp...")
 os.system(r"c: && cd C:\xampp && xampp_start") #On lance xampp
 
 webbrowser.open("http://localhost/phpmyadmin/sql.php?db=temperatures&table=temperatures_glaciere&pos=0")
-webbrowser.open("http://localhost/temperatures_glaciere.php") #On ouvre le site en local
+webbrowser.open("http://localhost/suivi_temperature_glaciere.php") #On ouvre le site en local
 
 def publication(topic, message): #On publie un topic et un message
     client.publish(topic, message)
