@@ -10,8 +10,6 @@ import shutil, webbrowser #travailler avec des fichiers / ouvrir des sites web
 
 ### INITIALISATION
 
-print("Ouverture de Xampp...")
-os.system(r"c: && cd C:\xampp && xampp_start") #On lance xampp
 
 connection = mysql.connector.connect(host='localhost', database='', user='root', password='')
 curseur = connection.cursor()
@@ -47,6 +45,9 @@ for file in files:
     except shutil.Error: #Si le fichier a deja été déplacé
         pass
 
+print("Ouverture de Xampp...")
+os.system(r"c: && cd C:\xampp && xampp_start") #On lance xampp
+
 webbrowser.open("http://localhost/phpmyadmin/sql.php?db=temperatures&table=temperatures_glaciere&pos=0")
 webbrowser.open("http://localhost/suivi_temperature_glaciere.php") #On ouvre le site en local
 
@@ -65,9 +66,9 @@ valeur_precedente = None
 
 ARDUINO = "COM3" #On part du principe que la carte Arduino se trouve sur le port 3
 ser = serial.Serial(ARDUINO, timeout=1) #On lit le port de la carte Arduino
+ser.flushInput()
 
 while True: #Boucle infinie
-    ser.flushInput()
     serialValue = ser.readline().strip()
     if len(serialValue) == 5: #On filtre la valeur pour n'avoir que la température
         # if serialValue != valeur_precedente:
