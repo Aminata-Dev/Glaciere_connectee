@@ -10,6 +10,8 @@ import shutil, webbrowser #travailler avec des fichiers / ouvrir des sites web
 
 ### INITIALISATION
 
+print("Ouverture de Xampp...")
+os.system(r"c: && cd C:\xampp && xampp_start") #On lance xampp
 
 connection = mysql.connector.connect(host='localhost', database='', user='root', password='')
 curseur = connection.cursor()
@@ -44,9 +46,6 @@ for file in files:
         shutil.copy(file, r'C:\xampp\htdocs')
     except shutil.Error: #Si le fichier a deja été déplacé
         pass
-
-print("Ouverture de Xampp...")
-os.system(r"c: && cd C:\xampp && xampp_start") #On lance xampp
 
 webbrowser.open("http://localhost/phpmyadmin/sql.php?db=temperatures&table=temperatures_glaciere&pos=0")
 webbrowser.open("http://localhost/suivi_temperature_glaciere.php") #On ouvre le site en local
