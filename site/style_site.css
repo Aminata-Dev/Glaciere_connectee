@@ -21,8 +21,8 @@ h1 {
 
 .table-box{
     margin: 0 auto;
-    width: 800px;
-    height: 700px;
+    width: 65%;
+    height: 75%;
     overflow: auto;
 }
 
